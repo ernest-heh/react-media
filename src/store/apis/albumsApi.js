@@ -12,7 +12,7 @@ const albumsApi = createApi({
   reducerPath: "albums",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3005",
-    // PAUSE WITH SPINNER DEV ONLY
+    // PAUSE WITH SPINNER, DEV ONLY
     fetchFn: async (...args) => {
       await pause(1000);
       return fetch(...args);
@@ -20,9 +20,20 @@ const albumsApi = createApi({
   }),
   endpoints(builder) {
     return {
+      removeAlbum: builder.mutation({
+        invalidatesTags: (result, error, album) => {
+          return [{ type: "Album", id: album.id }];
+        },
+        query: (album) => {
+          return {
+            url: `/albums/${album.id}`,
+            method: "DELETE",
+          };
+        },
+      }),
       addAlbum: builder.mutation({
         invalidatesTags: (result, error, user) => {
-          return [{ type: "Album", id: user.id }];
+          return [{ type: "UsersAlbums", id: user.id }];
         },
         query: (user) => {
           return {
@@ -37,7 +48,11 @@ const albumsApi = createApi({
       }),
       fetchAlbums: builder.query({
         providesTags: (result, error, user) => {
-          return [{ type: "Album", id: user.id }];
+          const tags = result.map((album) => {
+            return { type: "Album", id: album.id };
+          });
+          tags.push({ type: "UsersAlbums", id: user.id });
+          return tags;
         },
         query: (user) => {
           // user is an object
@@ -54,5 +69,9 @@ const albumsApi = createApi({
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi;
+export const {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} = albumsApi;
 export { albumsApi };
