@@ -27,7 +27,63 @@
       "userId": 1,
       "title": "Refined Fresh Fish",
       "id": 12
+    },
+    {
+      "userId": 5,
+      "title": "Generic Granite Bike",
+      "id": 13
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150/abstract?lock=85083",
+      "id": 1
+    },
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150/abstract?lock=65339",
+      "id": 3
+    },
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150/abstract?lock=54547",
+      "id": 4
+    },
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150/abstract?lock=7633",
+      "id": 5
+    },
+    {
+      "albumId": 10,
+      "url": "https://loremflickr.com/150/150/abstract?lock=72324",
+      "id": 6
+    },
+    {
+      "albumId": 12,
+      "url": "https://loremflickr.com/150/150/abstract?lock=30455",
+      "id": 7
+    },
+    {
+      "albumId": 12,
+      "url": "https://loremflickr.com/150/150/abstract?lock=26071",
+      "id": 8
+    },
+    {
+      "albumId": 13,
+      "url": "https://loremflickr.com/150/150/abstract?lock=13108",
+      "id": 9
+    },
+    {
+      "albumId": 13,
+      "url": "https://loremflickr.com/150/150/abstract?lock=62172",
+      "id": 10
+    },
+    {
+      "albumId": 13,
+      "url": "https://loremflickr.com/150/150/abstract?lock=70156",
+      "id": 11
+    }
+  ]
 }
